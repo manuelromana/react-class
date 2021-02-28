@@ -6,4 +6,4 @@ services:
 before_install:
   - docker build -t romana_m/react-class -f Dockerfile.dev .
 script:
-  - docker run CI=true romana_m/react-class npm run test -- --coverage
+  - docker run -e CI=true romana_m/react-class npm run test -- --coverage
