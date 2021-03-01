@@ -7,3 +7,18 @@ before_install:
   - docker build -t romana_m/react-class -f Dockerfile.dev .
 script:
   - docker run -e CI=true romana_m/react-class npm run test -- --coverage
+# CI=true is for exit 0 after the the CMD test that will run without ending
+
+deploy:
+  provider: elastikbeanstack
+  region: "us-east-2"
+  app: "react-docker"
+  env: "Reactdocker-env"
+  bucket_name: "elasticbeanstalk-us-east-2-213982590720"
+  bucket_path: "react-docker"
+  on:
+    branch: master
+  acces_key_id: $AWS_SECRET_KEY
+  secret_acces_key:
+    secure: "AWS_SECRET"
+
