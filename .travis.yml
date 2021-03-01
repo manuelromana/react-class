@@ -10,7 +10,7 @@ script:
 # CI=true is for exit 0 after the the CMD test that will run without ending
 
 deploy:
-  provider: elastikbeanstack
+  provider: elastikbeanstalk
   region: "us-east-2"
   app: "react-docker"
   env: "Reactdocker-env"
